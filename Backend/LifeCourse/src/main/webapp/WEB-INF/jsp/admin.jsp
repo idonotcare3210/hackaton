@@ -31,14 +31,6 @@
                         <input type="hidden" name="userId" value="${user.id}"/>
                         <input type="hidden" name="action" value="delete"/>
                         <button type="submit">Delete</button>
-                        <select name="action" value="addRole">
-                            <option value="">--Choose role--</option>
-                            <option value="3">ROLE_STUDENT</option>
-                            <option value="4">ROLE_UNIVERSITY</option>
-                            <option value="5">ROLE_BUSINESSMAN</option>
-                        </select>
-                        <input type="hidden" name="action" value="addrole"/>
-                        <button type="submit">Confirm</button>
                     </form>
                     <form action="${pageContext.request.contextPath}/admin/addRole/${user.id}" method="post">
                         <select name="roleId">
