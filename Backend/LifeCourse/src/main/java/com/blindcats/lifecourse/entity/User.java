@@ -5,6 +5,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.sql.rowset.serial.SerialBlob;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
@@ -40,7 +41,9 @@ public class User implements UserDetails {
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Role> roles;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "agent")
-    private List<Institution> agents = new ArrayList<>();
+    private List<Institution> institutions = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "author")
+    private List<Post> posts = new ArrayList<>();
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Achievment> achievments;
     @ManyToOne
@@ -156,13 +159,30 @@ public class User implements UserDetails {
         this.middlename = middlename;
     }
 
-    public List<Institution> getAgents() {
-        return agents;
+    public void setInstitutions(List<Institution> institutions) {
+        this.institutions = institutions;
     }
 
-    public void setAgents(List<Institution> agents) {
-        this.agents = agents;
+    public List<Institution> getInstitutions() {
+        return institutions;
     }
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
+    }
+
 
     public Set<Achievment> getAchievments() {
         return achievments;
