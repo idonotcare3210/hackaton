@@ -17,20 +17,14 @@
         <div>
             <form:input type="text" path="firstname" placeholder="Firstname"
                         autofocus="true"></form:input>
-            <form:errors path="firstname"></form:errors>
-                ${usernameError}
         </div>
         <div>
             <form:input type="text" path="middlename" placeholder="Middlename"
                         autofocus="true"></form:input>
-            <form:errors path="middlename"></form:errors>
-                ${usernameError}
         </div>
         <div>
             <form:input type="text" path="lastname" placeholder="Lastname"
                         autofocus="true"></form:input>
-            <form:errors path="lastname"></form:errors>
-                ${usernameError}
         </div>
         <div>
             <form:input type="text" path="username" placeholder="Username"
@@ -42,8 +36,10 @@
         <form:input type="text" path="email" placeholder="Email"
                     autofocus="true"></form:input>
         <form:errors path="email"></form:errors>
-            ${usernameError}
-</div>
+            ${emailError}
+        <form:errors path="email"></form:errors>
+            ${emailValidError}
+        </div>
         <div>
             <form:input type="password" path="password" placeholder="Password"></form:input>
         </div>

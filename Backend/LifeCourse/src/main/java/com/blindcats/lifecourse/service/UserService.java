@@ -16,6 +16,8 @@ import javax.persistence.PersistenceContext;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Service
 public class UserService implements UserDetailsService {
@@ -76,6 +78,14 @@ public class UserService implements UserDetailsService {
         return user;
     }
 
+    public static final Pattern VALID_EMAIL_ADDRESS_REGEX =
+            Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+
+    public static boolean validate(String emailStr) {
+        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
+        return matcher.matches();
+    }
+
     public User findUserById(Long userId) {
         Optional<User> userFromDb = userRepository.findById(userId);
         return userFromDb.orElse(new User());
@@ -85,19 +95,21 @@ public class UserService implements UserDetailsService {
         return userRepository.findAll();
     }
 
-    public boolean saveUser(User user) {
+    public int saveUser(User user) {
         User userFromDB = userRepository.findByUsername(user.getUsername());
-
         if (userFromDB != null) {
-            return false;
+            return 1;//пользователь уже существует
         }
         else {
             User userByEmail = userRepository.findByEmail(user.getEmail());
             if (userByEmail != null) {
-                return false;
+                return 2;//аккаунт с данной почтой уже существует
             }
         }
-
+        String email = user.getEmail();
+        if (!validate(email)) {
+            return 3; //некорректный емаил
+        }
         user.setUsername(user.getUsername());
         user.setEmail(user.getEmail());
         user.setFirstname(user.getFirstname());
@@ -107,7 +119,7 @@ public class UserService implements UserDetailsService {
         Role roleGuest = roleRepository.findById(1L).orElseThrow(() -> new RuntimeException("Role not found"));
         user.setRoles(Collections.singleton(roleGuest));
         userRepository.save(user);
-        return true;
+        return 0;// успешная регистрация
     }
 
     public boolean deleteUser(Long userId) {
