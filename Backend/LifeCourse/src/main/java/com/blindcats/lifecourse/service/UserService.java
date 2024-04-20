@@ -108,7 +108,7 @@ public class UserService implements UserDetailsService {
         }
         String email = user.getEmail();
         if (!validate(email)) {
-            return 3; //некорректный емаил
+            return 3; //некорректный email
         }
         user.setUsername(user.getUsername());
         user.setEmail(user.getEmail());
