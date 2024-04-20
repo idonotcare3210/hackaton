@@ -19,4 +19,36 @@ public class InstitutionalMembersList {
     @ManyToOne
     @NotNull
     private InstitutionRole institutionRole;
+
+    public Institution getInstitution() {
+        return institution;
+    }
+
+    public InstitutionRole getInstitutionRole() {
+        return institutionRole;
+    }
+
+    public Long getMemberID() {
+        return memberID;
+    }
+
+    public void setInstitution(Institution institution) {
+        this.institution = institution;
+    }
+
+    public void setMemberID(Long memberID) {
+        this.memberID = memberID;
+    }
+
+    public void setInstitutionRole(InstitutionRole institutionRole) {
+        this.institutionRole = institutionRole;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
