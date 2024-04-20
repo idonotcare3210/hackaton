@@ -136,6 +136,7 @@ public class UserService implements UserDetailsService {
         //Сделать: Получить ID роли
         Role newRole = roleRepository.findById(roleId).orElseThrow(() ->  new RuntimeException("Role not found"));
         usertoedit.addRole(newRole);
+        userRepository.save(usertoedit);
         return true;
     }
 
