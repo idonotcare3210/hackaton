@@ -16,11 +16,13 @@ public class Institution {
     @NotNull
     private String institutionName;
     private String institutionSite;
+    @NotNull
+    private String institutionAddress;
     @ManyToOne
     @NotNull
     private User agent;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "institution")
-    // По умолчанию пустой список помогает не проверять на null
-    // Выборка данных выполнится при обращении к getPosts()
-    private List<IntstitutionalMembersList> membersLists = new ArrayList<>();
+    private List<InstitutionalMembersList> membersLists = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "institution")
+    private List<Faculty> faculties = new ArrayList<>();
 }

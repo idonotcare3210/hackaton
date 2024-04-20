@@ -14,7 +14,5 @@ public class AchievmentType {
     private String typeName;
     private Long mark;
     @OneToMany(mappedBy = "achievmentType")
-    // По умолчанию пустой список помогает не проверять на null
-    // Выборка данных выполнится при обращении к getPosts()
     private List<Achievment> achievments = new ArrayList<>();
 }

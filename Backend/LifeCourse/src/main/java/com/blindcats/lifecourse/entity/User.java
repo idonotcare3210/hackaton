@@ -40,8 +40,6 @@ public class User implements UserDetails {
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Role> roles;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "agent")
-    // По умолчанию пустой список помогает не проверять на null
-    // Выборка данных выполнится при обращении к getPosts()
     private List<Institution> agents = new ArrayList<>();
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Achievment> achievments;

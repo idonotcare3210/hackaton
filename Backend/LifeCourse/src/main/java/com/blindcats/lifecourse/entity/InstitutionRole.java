@@ -16,7 +16,5 @@ public class InstitutionRole {
     @NotNull
     private String institutionRoleName;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "institutionRole")
-    // По умолчанию пустой список помогает не проверять на null
-    // Выборка данных выполнится при обращении к getPosts()
-    private List<IntstitutionalMembersList> membersLists = new ArrayList<>();
+    private List<InstitutionalMembersList> membersLists = new ArrayList<>();
 }
