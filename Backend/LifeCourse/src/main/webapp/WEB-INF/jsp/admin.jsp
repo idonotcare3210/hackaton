@@ -22,7 +22,7 @@
             <tr>
                 <td>${user.id}</td>
                 <td>${user.username}</td>
-                <td>${user.password}</td>
+                <td>${user.email}</td>
                 <td>
                     <c:forEach items="${user.roles}" var="role">${role.name}; </c:forEach>
                 </td>
@@ -31,6 +31,17 @@
                         <input type="hidden" name="userId" value="${user.id}"/>
                         <input type="hidden" name="action" value="delete"/>
                         <button type="submit">Delete</button>
+                    </form>
+                    <form action="${pageContext.request.contextPath}/admin/addRole/${user.id}" method="post">
+                        <select name="roleId">
+                            <option value="">--Choose role--</option>
+                            <option value="3">ROLE_STUDENT</option>
+                            <option value="4">ROLE_UNIVERSITY</option>
+                            <option value="5">ROLE_BUSINESSMAN</option>
+                        </select>
+                        <input type="hidden" name="userId" value="${user.id}"/>
+                        <input type="hidden" name="action" value="addRole"/>
+                        <button type="submit">Confirm</button>
                     </form>
                 </td>
             </tr>

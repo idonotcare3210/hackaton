@@ -116,6 +116,10 @@ public class User implements UserDetails {
         this.roles = roles;
     }
 
+    public void addRole(Role role) {
+        this.roles.add(role);
+    }
+
     public String getEmail() {
         return email;
     }

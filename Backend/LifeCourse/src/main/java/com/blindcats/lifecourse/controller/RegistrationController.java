@@ -34,11 +34,19 @@ public class RegistrationController {
             model.addAttribute("passwordError", "Пароли не совпадают");
             return "registration";
         }
-        if (!userService.saveUser(userForm)){
-            model.addAttribute("usernameError", "Пользователь с таким именем или электронной почтой уже существует");
+        int registrationResponse = userService.saveUser(userForm);
+        if (registrationResponse == 1){
+            model.addAttribute("usernameError", "Пользователь с таким именем уже существует");
             return "registration";
         }
-
+        else if (registrationResponse == 2) {
+            model.addAttribute("emailError", "Пользователь с такой электронной почтой уже существует");
+            return "registration";
+        }
+        else if (registrationResponse == 3) {
+            model.addAttribute("emailValidError", "Некорректный адрес электронной почты");
+            return "registration";
+        }
         return "redirect:/";
     }
 }

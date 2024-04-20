@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.io.Console;
+
 @Controller
 public class AdminController {
     @Autowired
@@ -26,6 +28,17 @@ public class AdminController {
                               Model model) {
         if (action.equals("delete")){
             userService.deleteUser(userId);
+        }
+        return "redirect:/admin";
+    }
+
+    @PostMapping("/admin/addRole/{userId}")
+    public String  addUserRole(@PathVariable("userId") Long userId,
+                               @RequestParam(required = true, defaultValue = "" ) Long roleId,
+                               @RequestParam(required = true, defaultValue = "" ) String action,
+                               Model model) {
+        if (action.equals("addRole")){
+            userService.AddRole(userId, roleId);
         }
         return "redirect:/admin";
     }
