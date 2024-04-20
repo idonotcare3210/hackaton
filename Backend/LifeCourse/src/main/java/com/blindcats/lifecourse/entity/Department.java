@@ -19,4 +19,36 @@ public class Department {
     private Faculty faculty;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "department")
     private List<Group> groups = new ArrayList<>();
+
+    public Long getDepartmentID() {
+        return departmentID;
+    }
+
+    public void setDepartmentID(Long departmentID) {
+        this.departmentID = departmentID;
+    }
+
+    public Faculty getFaculty() {
+        return faculty;
+    }
+
+    public String getDepartmentName() {
+        return departmentName;
+    }
+
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
+    }
+
+    public List<Group> getGroups() {
+        return groups;
+    }
+
+    public void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
+    }
+
+    public void setGroups(List<Group> groups) {
+        this.groups = groups;
+    }
 }

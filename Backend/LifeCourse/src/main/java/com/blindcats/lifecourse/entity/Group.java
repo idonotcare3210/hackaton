@@ -21,4 +21,45 @@ public class Group {
     private Department department;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "group")
     private List<User> groups = new ArrayList<>();
+
+    public void setGroups(List<User> groups) {
+        this.groups = groups;
+    }
+
+    public Long getGroupID() {
+        return groupID;
+    }
+
+    public List<User> getGroups() {
+        return groups;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public String getGroupName() {
+        return groupName;
+    }
+
+    public void setGroupID(Long groupID) {
+        this.groupID = groupID;
+    }
+
+    public Long getCourseNumber() {
+        return courseNumber;
+    }
+
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
+
+    public void setCourseNumber(Long courseNumber) {
+        this.courseNumber = courseNumber;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
 }
+
