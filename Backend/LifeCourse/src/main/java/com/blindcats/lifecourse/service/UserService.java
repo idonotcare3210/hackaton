@@ -130,6 +130,15 @@ public class UserService implements UserDetailsService {
         return false;
     }
 
+    public boolean AddRole(Long userId, Long roleId) {
+        //Сделать: получить ID пользователя
+        User usertoedit = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
+        //Сделать: Получить ID роли
+        Role newRole = roleRepository.findById(roleId).orElseThrow(() ->  new RuntimeException("Role not found"));
+        usertoedit.addRole(newRole);
+        return true;
+    }
+
     public List<User> usergtList(Long idMin) {
         return em.createQuery("SELECT u FROM User u WHERE u.id > :paramId", User.class)
                 .setParameter("paramId", idMin).getResultList();

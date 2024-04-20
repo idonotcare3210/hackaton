@@ -30,6 +30,17 @@ public class AdminController {
         return "redirect:/admin";
     }
 
+    @PostMapping("/admin/addRole/{userId}")
+    public String  addUserRole(@PathVariable("userId") Long userId,
+                               @RequestParam(required = true, defaultValue = "" ) Long roleId,
+                               @RequestParam(required = true, defaultValue = "" ) String action,
+                               Model model) {
+        if (action.equals("addRole")){
+            userService.AddRole(userId, roleId);
+        }
+        return "redirect:/admin";
+    }
+
     @GetMapping("/admin/gt/{userId}")
     public String  gtUser(@PathVariable("userId") Long userId, Model model) {
         model.addAttribute("allUsers", userService.usergtList(userId));
