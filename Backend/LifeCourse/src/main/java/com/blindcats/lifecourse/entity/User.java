@@ -47,7 +47,6 @@ public class User implements UserDetails {
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Achievment> achievments;
     @ManyToOne
-    @NotNull
     private Group group;
 
     public User() {
