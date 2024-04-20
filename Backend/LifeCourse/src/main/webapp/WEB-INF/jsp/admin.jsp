@@ -15,7 +15,7 @@
         <thead>
         <th>ID</th>
         <th>UserName</th>
-        <th>Password</th>
+        <th>EMail</th>
         <th>Roles</th>
         </thead>
         <c:forEach items="${allUsers}" var="user">
@@ -30,18 +30,33 @@
                     <form action="${pageContext.request.contextPath}/admin" method="post">
                         <input type="hidden" name="userId" value="${user.id}"/>
                         <input type="hidden" name="action" value="delete"/>
-                        <button type="submit">Delete</button>
+                        <button type="submit">Drop</button>
                     </form>
                     <form action="${pageContext.request.contextPath}/admin/addRole/${user.id}" method="post">
                         <select name="roleId">
                             <option value="">--Choose role--</option>
-                            <option value="3">ROLE_STUDENT</option>
-                            <option value="4">ROLE_UNIVERSITY</option>
-                            <option value="5">ROLE_BUSINESSMAN</option>
+                            <c:forEach items="${allRoles}" var="role">
+                                <c:if test="${!user.roles.contains(role) && !role.name.equals('ROLE_GUEST') && !role.name.equals('ROLE_ADMIN')}">
+                                    <option value="${role.id}">${role.name}</option>
+                                </c:if>
+                            </c:forEach>
                         </select>
                         <input type="hidden" name="userId" value="${user.id}"/>
                         <input type="hidden" name="action" value="addRole"/>
                         <button type="submit">Confirm</button>
+                    </form>
+                    <form action="${pageContext.request.contextPath}/admin/removeRole/${user.id}" method="post">
+                        <select name="roleId">
+                            <option value="">--Choose role to remove--</option>
+                            <c:forEach items="${user.roles}" var="role">
+                                <c:if test="${!role.name.equals('ROLE_GUEST') && !role.name.equals('ROLE_ADMIN')}">
+                                    <option value="${role.id}">${role.name}</option>
+                                </c:if>
+                            </c:forEach>
+                        </select>
+                        <input type="hidden" name="userId" value="${user.id}"/>
+                        <input type="hidden" name="action" value="removeRole"/>
+                        <button type="submit">Remove Role</button>
                     </form>
                 </td>
             </tr>

@@ -17,6 +17,7 @@ public class AdminController {
     @GetMapping("/admin")
     public String userList(Model model) {
         model.addAttribute("allUsers", userService.allUsers());
+        model.addAttribute("allRoles", userService.allRoles()); // получаем все роли
         return "admin";
     }
 
@@ -46,4 +47,15 @@ public class AdminController {
         model.addAttribute("allUsers", userService.usergtList(userId));
         return "admin";
     }
+    @PostMapping("/admin/removeRole/{userId}")
+    public String removeUserRole(@PathVariable("userId") Long userId,
+                                 @RequestParam(required = true, defaultValue = "" ) Long roleId,
+                                 @RequestParam(required = true, defaultValue = "" ) String action,
+                                 Model model) {
+        if (action.equals("removeRole")){
+            userService.removeRole(userId, roleId);
+        }
+        return "redirect:/admin";
+    }
+
 }

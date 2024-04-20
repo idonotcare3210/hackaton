@@ -94,6 +94,9 @@ public class UserService implements UserDetailsService {
     public List<User> allUsers() {
         return userRepository.findAll();
     }
+    public List<Role> allRoles() {
+        return roleRepository.findAll();
+    }
 
     public int saveUser(User user) {
         User userFromDB = userRepository.findByUsername(user.getUsername());
@@ -131,11 +134,16 @@ public class UserService implements UserDetailsService {
     }
 
     public boolean AddRole(Long userId, Long roleId) {
-        //Сделать: получить ID пользователя
         User usertoedit = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
-        //Сделать: Получить ID роли
         Role newRole = roleRepository.findById(roleId).orElseThrow(() ->  new RuntimeException("Role not found"));
         usertoedit.addRole(newRole);
+        userRepository.save(usertoedit);
+        return true;
+    }
+    public boolean removeRole(Long userId, Long roleId) {
+        User usertoedit = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
+        Role newRole = roleRepository.findById(roleId).orElseThrow(() ->  new RuntimeException("Role not found"));
+        usertoedit.removeRole(newRole);
         userRepository.save(usertoedit);
         return true;
     }
