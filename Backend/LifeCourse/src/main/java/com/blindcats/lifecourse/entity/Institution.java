@@ -25,4 +25,60 @@ public class Institution {
     private List<InstitutionalMembersList> membersLists = new ArrayList<>();
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "institution")
     private List<Faculty> faculties = new ArrayList<>();
+
+    public Long getInstitutionID() {
+        return institutionID;
+    }
+
+    public List<Faculty> getFaculties() {
+        return faculties;
+    }
+
+    public String getInstitutionAddress() {
+        return institutionAddress;
+    }
+
+    public String getInstitutionName() {
+        return institutionName;
+    }
+
+    public String getInstitutionSite() {
+        return institutionSite;
+    }
+
+    public List<InstitutionalMembersList> getMembersLists() {
+        return membersLists;
+    }
+
+    public void setInstitutionID(Long institutionID) {
+        this.institutionID = institutionID;
+    }
+
+    public User getAgent() {
+        return agent;
+    }
+
+    public void setAgent(User agent) {
+        this.agent = agent;
+    }
+
+    public void setInstitutionAddress(String institutionAddress) {
+        this.institutionAddress = institutionAddress;
+    }
+
+    public void setInstitutionName(String institutionName) {
+        this.institutionName = institutionName;
+    }
+
+    public void setInstitutionSite(String institutionSite) {
+        this.institutionSite = institutionSite;
+    }
+
+    public void setFaculties(List<Faculty> faculties) {
+        this.faculties = faculties;
+    }
+
+    public void setMembersLists(List<InstitutionalMembersList> membersLists) {
+        this.membersLists = membersLists;
+    }
 }

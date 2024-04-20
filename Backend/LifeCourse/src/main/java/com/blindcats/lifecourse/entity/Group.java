@@ -2,6 +2,8 @@ package com.blindcats.lifecourse.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "t_group")
@@ -17,4 +19,6 @@ public class Group {
     @ManyToOne
     @NotNull
     private Department department;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "group")
+    private List<User> groups = new ArrayList<>();
 }

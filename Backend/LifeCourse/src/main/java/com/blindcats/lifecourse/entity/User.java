@@ -43,6 +43,9 @@ public class User implements UserDetails {
     private List<Institution> agents = new ArrayList<>();
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Achievment> achievments;
+    @ManyToOne
+    @NotNull
+    private Group group;
 
     public User() {
     }
