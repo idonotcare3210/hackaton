@@ -47,7 +47,7 @@
 
 			<label>
 				Логин
-				<input type="email" name="username" class="block" />
+				<input type="text" name="username" class="block" />
 			</label>
 
 			<label>
