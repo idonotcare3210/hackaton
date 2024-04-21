@@ -11,21 +11,8 @@
 
 <body>
 <div>
-    <%--@elvariable id="userForm" type=""--%>
     <form:form method="POST" modelAttribute="userForm">
         <h2>Регистрация</h2>
-        <div>
-            <form:input type="text" path="firstname" placeholder="Firstname"
-                        autofocus="true"></form:input>
-        </div>
-        <div>
-            <form:input type="text" path="middlename" placeholder="Middlename"
-                        autofocus="true"></form:input>
-        </div>
-        <div>
-            <form:input type="text" path="lastname" placeholder="Lastname"
-                        autofocus="true"></form:input>
-        </div>
         <div>
             <form:input type="text" path="username" placeholder="Username"
                         autofocus="true"></form:input>
@@ -33,12 +20,10 @@
                 ${usernameError}
         </div>
         <div>
-        <form:input type="text" path="email" placeholder="Email"
-                    autofocus="true"></form:input>
-        <form:errors path="email"></form:errors>
-            ${emailError}
-        <form:errors path="email"></form:errors>
-            ${emailValidError}
+            <form:input type="text" path="email" placeholder="Email"
+                        autofocus="true"></form:input>
+            <form:errors path="email"></form:errors>
+                ${usernameError}
         </div>
         <div>
             <form:input type="password" path="password" placeholder="Password"></form:input>
