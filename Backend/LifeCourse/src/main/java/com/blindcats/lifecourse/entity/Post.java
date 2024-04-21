@@ -24,4 +24,44 @@ public class Post {
     @ManyToOne
     @NotNull
     private User author;
+
+    public Long getPostID() {
+        return postID;
+    }
+
+    public String getPostContent() {
+        return postContent;
+    }
+
+    public Date getPublicationDate() {
+        return publicationDate;
+    }
+
+    public void setPostID(Long postID) {
+        this.postID = postID;
+    }
+
+    public String getPublicationTime() {
+        return publicationTime;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setPostContent(String postContent) {
+        this.postContent = postContent;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
+    }
+
+    public void setPublicationDate(Date publicationDate) {
+        this.publicationDate = publicationDate;
+    }
+
+    public void setPublicationTime(String publicationTime) {
+        this.publicationTime = publicationTime;
+    }
 }
