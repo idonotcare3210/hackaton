@@ -187,13 +187,20 @@ public class User implements UserDetails {
     public void setPosts(List<Post> posts) {
         this.posts = posts;
     }
-
-
     public Set<Achievment> getAchievments() {
         return achievments;
     }
 
     public void setAchievments(Set<Achievment> achievments) {
         this.achievments = achievments;
+    }
+
+    public long getUserRating() {
+        long rating = 0L;
+        Set<Achievment> achievments = getAchievments();
+        for (Achievment achievment: achievments) {
+            rating += achievment.getMark();
+        }
+        return rating;
     }
 }

@@ -14,4 +14,8 @@ public class Achievment {
     @ManyToOne
     @NotNull
     private AchievmentType achievmentType;
+
+    public Long getMark() {
+        return this.achievmentType.getMark();
+    }
 }

@@ -19,4 +19,15 @@ public class AchievmentType {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "achievmentType")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Achievment> achievments = new ArrayList<>();
+
+    public Long getAchievmentTypeID() {
+        return this.typeID;
+    }
+    public String getTypeName() {
+        return this.typeName;
+    }
+
+    public Long getMark() {
+        return this.mark;
+    }
 }
