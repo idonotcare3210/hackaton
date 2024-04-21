@@ -2,25 +2,54 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <title>Главная</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/style.css">
+	<meta charset="utf-8" />
+	<title>Life Course</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="/resources/style.css" />
 </head>
+
 <body>
-<div>
-    <h3>${pageContext.request.userPrincipal.name}</h3>
-    <sec:authorize access="!isAuthenticated()">
-        <h4><a href="/login">Войти</a></h4>
-        <h4><a href="/registration">Зарегистрироваться</a></h4>
-    </sec:authorize>
-    <sec:authorize access="isAuthenticated()">
-        <h4><a href="/logout">Выйти</a></h4>
-    </sec:authorize>
-    <h4><a href="/news">Новости (только пользователь)</a></h4>
-    <h4><a href="/admin">Пользователи (только админ)</a></h4>
-</div>
+	<!--
+		<h3>${pageContext.request.userPrincipal.name}</h3>
+		<sec:authorize access="!isAuthenticated()">
+			<h4><a href="/login">Войти</a></h4>
+			<h4><a href="/registration">Зарегистрироваться</a></h4>
+		</sec:authorize>
+		<sec:authorize access="isAuthenticated()">
+			<h4><a href="/logout">Выйти</a></h4>
+		</sec:authorize>
+		<h4><a href="/news">Новости (только пользователь)</a></h4>
+		<h4><a href="/admin">Пользователи (только админ)</a></h4>
+	-->
+
+	<header>
+		<img src="/resources/logo.svg" />
+		<div class="header-links">
+			<a href="/faculty">Предприятиям</a>
+			<div class="separator"></div>
+			<a href="/student">Студентам</a>
+			<div class="separator"></div>
+			<a href="/university">ВУЗам</a>
+		</div>
+	</header>
+
+	<main>
+		<p class="the-main-paragraph">
+			Life Course - Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis ullam maiores perferendis est beatae sint illo soluta exercitationem dolores ratione, unde et natus magni, corrupti amet assumenda commodi repellendus eum.
+		</p>
+
+		<div class="the-main-buttons">
+			<a class="pretty-button" href="/login">Вход / Регистрация</a>
+			<a class="pretty-button" href="/news">Лента новостей</a>
+			<a class="pretty-button" href="">Оренбург</a>
+		</div>
+	</main>
+
+	<footer></footer>
 </body>
+
 </html>
