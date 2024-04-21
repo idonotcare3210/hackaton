@@ -1,0 +1,136 @@
+:root {
+	position: absolute;
+	min-width: 100%;
+	min-height: 100%;
+	--color1: #4070e7;
+	--color2: #5eccf7;
+	--color-white: white;
+	background: url(background.svg), linear-gradient(119deg, var(--color1), var(--color2));
+}
+body {
+	font-family: sans-serif;
+	line-height: 1.5;
+	color: white;
+}
+
+.block {
+	display: block;
+}
+
+a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+a:visited {
+	color: inherit;
+}
+
+
+/* header only */
+	header {
+		position: sticky;
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-content: center;
+		gap: 0.6em;
+	}
+	header > img {
+		height: 3em;
+	}
+	.header-links {
+		display: flex;
+		flex-flow: row wrap;
+		gap: 0.7em;
+		align-content: center;
+	}
+	.header-links > div.separator {
+		width: 0;
+		border-left: solid var(--color-white) 2px;
+	}
+
+
+/* inside <main>, index.html only */
+	.the-main-paragraph {
+		margin: 5em auto;
+		text-align: center;
+		max-width: 70ch;
+	}
+	.the-main-buttons {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		gap: 1em;
+	}
+	.pretty-button {
+		border-radius: 1em;
+		box-shadow: #00000040 0.4em 0.4em 0.8em;
+
+		border: solid var(--color-white) 2px;
+		padding: 0.5em;
+		color: var(--color-white);
+		transition: background 0.6s;
+	}
+	.pretty-button:hover {
+		background: var(--color-white);
+		color: var(--color2);
+		text-decoration: none;
+	}
+
+/* inside <main>, index.html only */
+	.login-box {
+		padding: 2em 3em 3em 3em;
+		max-width: 20em;
+
+		display: flex;
+		flex-flow: column nowrap;
+		align-content: stretch;
+		gap: 1.5em;
+	}
+	.login-box h1 {
+		font-size: 1.5em;
+	}
+	.login-box input {
+		box-sizing: border-box;
+		border: solid var(--color1) 1px;
+		border-radius: 1em;
+		width: 100%;
+		padding: 0.6em;
+	}
+
+
+/* all pages, <main> */
+	main {
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: center;
+	}
+
+	.rounded {
+		border-radius: 1em;
+		box-shadow: #00000040 0.4em 0.4em 0.8em;
+	}
+
+	.article-panel {
+		margin: 2em 0;
+		border-radius: 1em;
+		box-shadow: #00000040 0.4em 0.4em 0.8em;
+		background: var(--color-white);
+		color: var(--color1);
+	}
+	.article-panel button {
+		border-radius: 1em;
+		box-shadow: #00000040 0.4em 0.4em 0.8em;
+		background: var(--color1);
+		color: var(--color-white);
+		padding: 0.6em;
+		font-size: large;
+		border: none;
+	}
+
+
+footer {
+	margin-top: 5em;
+}
