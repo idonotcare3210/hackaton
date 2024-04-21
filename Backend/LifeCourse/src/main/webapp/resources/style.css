@@ -79,6 +79,9 @@ a:visited {
 		color: var(--color-white);
 		transition: background 0.6s;
 	}
+	a.pretty-button {
+		color: var(--color-white);
+	}
 	.pretty-button:hover {
 		background: var(--color-white);
 		color: var(--color2);
