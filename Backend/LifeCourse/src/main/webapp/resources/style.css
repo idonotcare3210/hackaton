@@ -52,6 +52,9 @@ a:visited {
 		gap: 0.7em;
 		align-content: center;
 	}
+	.header-links a {
+		color: white;
+	}
 	.header-links > div.separator {
 		width: 0;
 		border-left: solid var(--color-white) 2px;
@@ -146,6 +149,14 @@ a:visited {
 		border-radius: 1em;
 		box-shadow: #00000040 0.4em 0.4em 0.8em;
 		padding: 0.6em;
+	}
+
+	table {
+		border-collapse: collapse;
+		border: solid 1px black;
+	}
+	table td {
+		border: solid 1px black;
 	}
 
 footer {

@@ -10,7 +10,6 @@
 	<title>Life Course</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="/resources/style.css" />
-	<script defer src="/resource/scripts/registration.js"></script>
 </head>
 
 <body>
