@@ -1,9 +1,11 @@
 version: '3.9'
 services:
   java:
-    build: ./
+    build: .\Backend\LifeCourse\out\artifacts\LifeCourse_jar
     ports:
       - 8081:80
+    depends_on:
+      - db
   db:
     image: postgres
     restart: always
