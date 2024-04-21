@@ -42,12 +42,12 @@
 	</header>
 
 	<main>
-		<form class="article-panel login-box">
+		<form method="POST" action="/login" class="article-panel login-box">
 			<h1>Вход / Регистрация</h1>
 
 			<label>
 				Логин
-				<input type="text" name="username" class="block" />
+				<input type="text"  name="username" class="block" />
 			</label>
 
 			<label>
@@ -55,7 +55,7 @@
 				<input type="password" name="password" class="block" />
 			</label>
 
-			<button>Войти</button>
+			<button type="submit">Войти</button>
 
 			<a href="/registration">Еще нет учетной записи?</a>
 		</div>
