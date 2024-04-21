@@ -34,11 +34,9 @@ public class UserService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username);
-
         if (user == null) {
             throw new UsernameNotFoundException("User not found");
         }
-
         return user;
     }
     public List<User> loadUserByFirstname(String firstname) throws UsernameNotFoundException {
@@ -126,7 +124,9 @@ public class UserService implements UserDetailsService {
     }
 
     public boolean deleteUser(Long userId) {
-        if (userRepository.findById(userId).isPresent()) {
+        User usertodelete = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
+        Role userrole = roleRepository.findById(2L).orElseThrow(() ->  new RuntimeException("Role not found"));
+        if (userRepository.findById(userId).isPresent() && !usertodelete.getRoles().contains(userrole)) {
             userRepository.deleteById(userId);
             return true;
         }
