@@ -24,7 +24,7 @@
                 <td>${user.username}</td>
                 <td>${user.email}</td>
                 <td>
-                    <c:forEach items="${user.roles}" var="role">${role.name}; </c:forEach>
+                    <c:forEach items="${user.roles}" var="role">${role.readableName}; </c:forEach>
                 </td>
                 <td>
                     <form action="${pageContext.request.contextPath}/admin" method="post">
@@ -37,7 +37,7 @@
                             <option value="">--Choose role--</option>
                             <c:forEach items="${allRoles}" var="role">
                                 <c:if test="${!user.roles.contains(role) && !role.name.equals('ROLE_GUEST') && !role.name.equals('ROLE_ADMIN')}">
-                                    <option value="${role.id}">${role.name}</option>
+                                    <option value="${role.id}">${role.readableName}</option>
                                 </c:if>
                             </c:forEach>
                         </select>
@@ -50,7 +50,7 @@
                             <option value="">--Choose role to remove--</option>
                             <c:forEach items="${user.roles}" var="role">
                                 <c:if test="${!role.name.equals('ROLE_GUEST') && !role.name.equals('ROLE_ADMIN')}">
-                                    <option value="${role.id}">${role.name}</option>
+                                    <option value="${role.id}">${role.readableName}</option>
                                 </c:if>
                             </c:forEach>
                         </select>

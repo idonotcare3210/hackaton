@@ -18,6 +18,7 @@ public class Role implements GrantedAuthority {
     @Column(unique = true)
     @NotNull
     private String name;
+    private String readableName;
     @SuppressWarnings("JpaAttributeTypeInspection")
     @Transient
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "roles")
@@ -57,6 +58,14 @@ public class Role implements GrantedAuthority {
 
     public void setUsers(Set<User> users) {
         this.users = users;
+    }
+
+    public String getReadableName() {
+        return readableName;
+    }
+
+    public void setReadableName(String readableName) {
+        this.readableName = readableName;
     }
 
     @Override
