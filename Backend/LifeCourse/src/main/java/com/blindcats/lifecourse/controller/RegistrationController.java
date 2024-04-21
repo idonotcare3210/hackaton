@@ -47,6 +47,6 @@ public class RegistrationController {
             model.addAttribute("emailValidError", "Некорректный адрес электронной почты");
             return "registration";
         }
-        return "redirect:/";
+        return "redirect:/index";
     }
 }
