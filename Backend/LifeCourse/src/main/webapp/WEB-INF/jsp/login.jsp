@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
 	<meta charset="utf-8" />
@@ -43,10 +43,10 @@
 
 	<main>
 		<form method="POST" action="/login" class="article-panel login-box">
-			<h1>Вход / Регистрация</h1>
+			<h1>Вход</h1>
 
 			<label>
-				Логин
+				Имя пользователя
 				<input type="text"  name="username" class="block" />
 			</label>
 

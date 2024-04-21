@@ -3,10 +3,14 @@
 	min-width: 100%;
 	min-height: 100%;
 	--color1: #4070e7;
+	--color1-lighter: #7090e2;
 	--color2: #5eccf7;
 	--color-white: white;
+	/*
 	background: url(/resources/background.svg) no-repeat, linear-gradient(119deg, var(--color1), var(--color2));
 	background-size: cover;
+	*/
+	background: linear-gradient(119deg, var(--color1), var(--color2));
 }
 body {
 	font-family: sans-serif;
@@ -19,14 +23,14 @@ body {
 }
 
 a {
-	color: inherit;
+	color: var(--color2);
 	text-decoration: none;
 }
 a:hover {
 	text-decoration: underline;
 }
 a:visited {
-	color: inherit;
+	color: var(--color2);
 }
 
 
@@ -81,20 +85,23 @@ a:visited {
 		text-decoration: none;
 	}
 
-/* inside <main>, index.html only */
+/* inside <main>, login.html only */
 	.login-box {
+		box-sizing: border-box;
+		width: 100%;
+		max-width: 30em;
+		
 		padding: 2em 3em 3em 3em;
-		max-width: 20em;
-
+		
 		display: flex;
 		flex-flow: column nowrap;
-		align-content: stretch;
+		align-items: stretch;
 		gap: 1.5em;
 	}
 	.login-box h1 {
 		font-size: 1.5em;
 	}
-	.login-box input {
+	.login-box input[type="text"], .login-box input[type="password"], .login-box input[type="email"] {
 		box-sizing: border-box;
 		width: 100%;
 	}
@@ -126,8 +133,12 @@ a:visited {
 		padding: 0.6em;
 		font-size: large;
 		border: none;
+		transition: background 0.6s;
 	}
-	.article-panel input {
+	.article-panel button:hover {
+		background: var(--color1-lighter);
+	}
+	.article-panel input[type='text'], .article-panel input[type='email'], .article-panel input[type='password'] {
 		border: solid var(--color1) 1px;
 		border-radius: 1em;
 		box-shadow: #00000040 0.4em 0.4em 0.8em;

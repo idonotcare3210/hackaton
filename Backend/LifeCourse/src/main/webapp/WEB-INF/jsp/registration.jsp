@@ -4,54 +4,77 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <title>Регистрация</title>
+	<meta charset="utf-8" />
+	<title>Life Course</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="/resources/style.css" />
+	<script defer src="/resource/scripts/registration.js"></script>
 </head>
 
 <body>
-<div>
-    <%--@elvariable id="userForm" type=""--%>
-    <form:form method="POST" modelAttribute="userForm">
-        <h2>Регистрация</h2>
-        <div>
-            <form:input type="text" path="firstname" placeholder="Firstname"
-                        autofocus="true"></form:input>
-        </div>
-        <div>
-            <form:input type="text" path="middlename" placeholder="Middlename"
-                        autofocus="true"></form:input>
-        </div>
-        <div>
-            <form:input type="text" path="lastname" placeholder="Lastname"
-                        autofocus="true"></form:input>
-        </div>
-        <div>
-            <form:input type="text" path="username" placeholder="Username"
-                        autofocus="true"></form:input>
-            <form:errors path="username"></form:errors>
-                ${usernameError}
-        </div>
-        <div>
-        <form:input type="text" path="email" placeholder="Email"
-                    autofocus="true"></form:input>
-        <form:errors path="email"></form:errors>
-            ${emailError}
-        <form:errors path="email"></form:errors>
-            ${emailValidError}
-        </div>
-        <div>
-            <form:input type="password" path="password" placeholder="Password"></form:input>
-        </div>
-        <div>
-            <form:input type="password" path="passwordConfirm"
-                        placeholder="Confirm your password"></form:input>
-            <form:errors path="password"></form:errors>
-                ${passwordError}
-        </div>
-        <button type="submit">Зарегистрироваться</button>
-    </form:form>
-    <a href="/">Главная</a>
-</div>
+	<header>
+		<img src="/resources/logo.svg" />
+		<div class="header-links">
+			<a href="/">На главную</a>
+		</div>
+	</header>
+
+	<main>
+		<%--@elvariable id="userForm" type=""--%>
+		<form:form method="POST" modelAttribute="userForm" class="article-panel login-box">
+			<h1>Регистрация</h1>
+
+			<label>
+				Имя:
+				<form:input type="text" path="firstname" class="block" required=""></form:input>
+			</label>
+			<label>
+				Отчество:
+				<form:input type="text" path="middlename" class="block"></form:input>
+			</label>
+			<label>
+				Фамилия:
+				<form:input type="text" path="lastname" class="block" required=""></form:input>
+			</label>
+			
+			<label>
+				Имя пользователя
+				<form:input type="text" path="username" class="block" required=""></form:input>
+				<form:errors path="username"></form:errors>
+				${usernameError}
+			</label>
+
+			<label>
+				Электронная почта
+				<form:input type="email" path="email" class="block" required=""></form:input>
+				<form:errors path="email"></form:errors>
+				${emailError}
+				<form:errors path="email"></form:errors>
+				${emailValidError}
+			</label>
+
+			<label>
+				Пароль
+				<form:input type="password" path="password" class="block" required=""></form:input>
+			</label>
+
+			<label>
+				Подтвердите пароль
+				<form:input type="password" path="passwordConfirm" class="block" required=""></form:input>
+				<form:errors path="password"></form:errors>
+				${passwordError}
+			</label>
+
+			<label>
+				<input type="checkbox" required="" />
+				Нажимая на галочку вы принимаете <a href="Согласие_на_обработку_и_распространение_персональных_данных.docx">согласие на обработку и распространение персональных данных</a>
+			</label>
+
+			<button type="submit">Зарегистрироваться</button>
+		</form:form>
+	</main>
 </body>
+
 </html>
