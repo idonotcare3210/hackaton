@@ -43,7 +43,12 @@
 		</p>
 
 		<div class="the-main-buttons">
-			<a class="pretty-button" href="/login">Вход / Регистрация</a>
+			<sec:authorize access="!isAuthenticated()">
+				<a class="pretty-button" href="/login">Вход / Регистрация</a>
+			</sec:authorize>
+			<sec:authorize access="isAuthenticated()">
+				<a class="pretty-button" href="/logout">Выйти</a>
+			</sec:authorize>
 			<a class="pretty-button" href="/news">Лента новостей</a>
 			<a class="pretty-button" href="">Оренбург</a>
 		</div>
