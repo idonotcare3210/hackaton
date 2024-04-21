@@ -1,5 +1,8 @@
 package com.blindcats.lifecourse.entity;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -15,6 +18,7 @@ public class InstitutionRole {
     @Column(unique = true)
     @NotNull
     private String institutionRoleName;
-    @OneToMany(mappedBy = "institutionRole")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "institutionRole")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<InstitutionalMembersList> membersLists = new ArrayList<>();
 }

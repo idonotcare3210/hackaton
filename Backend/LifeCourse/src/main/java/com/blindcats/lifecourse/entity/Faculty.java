@@ -1,5 +1,8 @@
 package com.blindcats.lifecourse.entity;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -17,7 +20,8 @@ public class Faculty {
     @ManyToOne
     @NotNull
     private Institution institution;
-    @OneToMany(mappedBy = "faculty")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "faculty")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Department> departments = new ArrayList<>();
 
     public void setInstitution(Institution institution) {

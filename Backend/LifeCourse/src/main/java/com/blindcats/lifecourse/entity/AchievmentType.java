@@ -1,5 +1,8 @@
 package com.blindcats.lifecourse.entity;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +16,7 @@ public class AchievmentType {
     private Long typeID;
     private String typeName;
     private Long mark;
-    @OneToMany(mappedBy = "achievmentType")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "achievmentType")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Achievment> achievments = new ArrayList<>();
 }

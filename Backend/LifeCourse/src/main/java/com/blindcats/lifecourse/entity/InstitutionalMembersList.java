@@ -1,5 +1,8 @@
 package com.blindcats.lifecourse.entity;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -13,8 +16,9 @@ public class InstitutionalMembersList {
     @ManyToOne
     @NotNull
     private Institution institution;
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @MapsId
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
     @ManyToOne
     @NotNull

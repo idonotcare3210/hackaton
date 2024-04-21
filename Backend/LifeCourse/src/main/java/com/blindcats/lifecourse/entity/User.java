@@ -1,6 +1,8 @@
 package com.blindcats.lifecourse.entity;
 
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -38,13 +40,17 @@ public class User implements UserDetails {
     private String password;
     @Transient
     private String passwordConfirm;
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<Role> roles;
-    @OneToMany(mappedBy = "agent")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "agent")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Institution> institutions = new ArrayList<>();
-    @OneToMany(mappedBy = "author")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "author")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Post> posts = new ArrayList<>();
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<Achievment> achievments;
     @ManyToOne
     private Group group;

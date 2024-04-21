@@ -1,5 +1,7 @@
 package com.blindcats.lifecourse.entity;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
@@ -18,7 +20,8 @@ public class Role implements GrantedAuthority {
     private String name;
     @SuppressWarnings("JpaAttributeTypeInspection")
     @Transient
-    @ManyToMany(mappedBy = "roles")
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "roles")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<User> users;
     public Role() {
     }
