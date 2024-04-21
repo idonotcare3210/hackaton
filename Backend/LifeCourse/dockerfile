@@ -1,0 +1,12 @@
+FROM maven
+COPY . ./tmp/
+WORKDIR ./tmp
+RUN sed -i 's/\r$//' ./mvnw  && \  
+chmod +x ./mvnw
+#CMD [ "ls", "-lhp" ]
+RUN mvn -N io.takari:maven:wrapper
+#ENTRYPOINT ./tmp/mvnw
+#WORKDIR ./tmp
+#RUN cd /tmp/
+CMD ["./mvnw", "spring-boot:run" ]
+#CMD [ "pwd" ]

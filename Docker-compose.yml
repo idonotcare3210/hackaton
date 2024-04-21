@@ -1,7 +1,8 @@
 version: '3.9'
 services:
   java:
-    build: .\Backend\LifeCourse\out\artifacts\LifeCourse_jar
+    build: .\Backend\LifeCourse\
+    #out\artifacts\LifeCourse_jar
     ports:
       - 8081:80
     depends_on:
@@ -18,7 +19,7 @@ services:
     #    tmpfs:
     #      size: 134217728 # 128*2^20 bytes = 128Mb
     environment:
-      POSTGRES_PASSWORD: 12345
+      POSTGRES_PASSWORD: 123456
 
   adminer:
     image: adminer
