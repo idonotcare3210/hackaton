@@ -19,7 +19,7 @@ public class Group {
     @ManyToOne
     @NotNull
     private Department department;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "group")
+    @OneToMany(mappedBy = "group")
     private List<User> groups = new ArrayList<>();
 
     public void setGroups(List<User> groups) {

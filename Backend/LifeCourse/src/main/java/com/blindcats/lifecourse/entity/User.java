@@ -38,13 +38,13 @@ public class User implements UserDetails {
     private String password;
     @Transient
     private String passwordConfirm;
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "agent")
+    @OneToMany(mappedBy = "agent")
     private List<Institution> institutions = new ArrayList<>();
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "author")
+    @OneToMany(mappedBy = "author")
     private List<Post> posts = new ArrayList<>();
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Achievment> achievments;
     @ManyToOne
     private Group group;

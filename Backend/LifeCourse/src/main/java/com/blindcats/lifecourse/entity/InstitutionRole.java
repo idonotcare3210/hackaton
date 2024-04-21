@@ -15,6 +15,6 @@ public class InstitutionRole {
     @Column(unique = true)
     @NotNull
     private String institutionRoleName;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "institutionRole")
+    @OneToMany(mappedBy = "institutionRole")
     private List<InstitutionalMembersList> membersLists = new ArrayList<>();
 }

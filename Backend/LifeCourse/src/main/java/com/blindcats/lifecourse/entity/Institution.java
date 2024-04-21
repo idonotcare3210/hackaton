@@ -21,9 +21,9 @@ public class Institution {
     @ManyToOne
     @NotNull
     private User agent;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "institution")
+    @OneToMany(mappedBy = "institution")
     private List<InstitutionalMembersList> membersLists = new ArrayList<>();
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "institution")
+    @OneToMany(mappedBy = "institution")
     private List<Faculty> faculties = new ArrayList<>();
 
     public Long getInstitutionID() {

@@ -17,7 +17,7 @@ public class Faculty {
     @ManyToOne
     @NotNull
     private Institution institution;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "faculty")
+    @OneToMany(mappedBy = "faculty")
     private List<Department> departments = new ArrayList<>();
 
     public void setInstitution(Institution institution) {
